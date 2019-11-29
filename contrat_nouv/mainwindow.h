@@ -4,6 +4,8 @@
 #include <QMainWindow>
 #include "locataire.h"
 #include "local.h"
+#include <QtWidgets/QMessageBox>
+#include <QtNetwork>
 
 namespace Ui {
 class MainWindow;
@@ -30,9 +32,6 @@ private slots:
 
 
 
-
-
-
     void on_Trier_locataire_clicked();
 
 
@@ -41,6 +40,8 @@ private slots:
     void on_lineRTYPE_textChanged();
 
     void on_Trier_local_clicked();
+
+    void on_Envoyer_clicked();
 
 private:
     Ui::MainWindow *ui;

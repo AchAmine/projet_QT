@@ -18,7 +18,7 @@ private:
 public:
     local();
     local(int,QString,double,double,QString,int,long) ;
-    int get_ID() { return id; }
+    int get_ID()const { return id; }
     QString get_type() { return type;}
     double get_superficie() {return superficie ;}
     double get_prix() { return prix ; }

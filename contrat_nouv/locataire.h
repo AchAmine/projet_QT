@@ -18,7 +18,7 @@ public :
     QString get_email() { return email ; }
     QString get_adr() { return adr ; }
     int get_id_local() { return id_local ; }
-    long get_CIN()  { return CIN ; }
+    long get_CIN() const { return CIN ; }
     long get_NumTel()  { return NumTel ; }
     bool ajouter_locataire() ;
     QSqlQueryModel * afficher_locataire();

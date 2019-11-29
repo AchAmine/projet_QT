@@ -2,6 +2,7 @@
 #include "ui_mainwindow.h"
 #include "locataire.h"
 #include "local.h"
+#include "mailing/SmtpMime"
 #include <QMessageBox>
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -12,6 +13,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->tablocataire->setModel(tmplocataire.afficher_locataire());
     ui->tablocal->setModel(tmplocal.afficher_local());
 }
+
 
 MainWindow::~MainWindow()
 {
@@ -188,4 +190,28 @@ void MainWindow::on_lineRTYPE_textChanged()
 void MainWindow::on_Trier_local_clicked()
 {
     ui->tabtlc->setModel(tmplocal.afficherlc());
+}
+
+void MainWindow::on_Envoyer_clicked()
+{
+    SmtpClient smtp("smtp.gmail.com", 465, SmtpClient::SslConnection);
+                QString ch=ui->textEdit->toPlainText();
+                smtp.setUser("mohamedamine.achour@esprit.tn");
+                smtp.setPassword("181JMT2328");
+                MimeMessage message;
+                message.setSender(new EmailAddress("mohamedamine.achour@esprit.tn", "administration"));
+                message.addRecipient(new EmailAddress(ui->lineEdit->text(), "client"));
+                message.setSubject("ATTENTION!!!!!");
+                MimeText text;
+                text.setText(ch);
+                message.addPart(&text);
+                smtp.connectToHost();
+                smtp.login();
+                if(smtp.sendMail(message)){
+                    QMessageBox::information(this, "OK", "Mail envoyé");
+                }else{
+                    QMessageBox::critical(this, "Erreur", "Mail non envoye");
+                }
+                smtp.quit();
+
 }

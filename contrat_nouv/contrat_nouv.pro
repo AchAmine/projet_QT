@@ -5,6 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui sql
+QT       += core gui sql network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -29,13 +30,39 @@ SOURCES += \
         mainwindow.cpp \
     locataire.cpp \
     local.cpp \
-    connexion.cpp
+    connexion.cpp \
+    mailing/emailaddress.cpp \
+    mailing/mimeattachment.cpp \
+    mailing/mimecontentformatter.cpp \
+    mailing/mimefile.cpp \
+    mailing/mimehtml.cpp \
+    mailing/mimeinlinefile.cpp \
+    mailing/mimemessage.cpp \
+    mailing/mimemultipart.cpp \
+    mailing/mimepart.cpp \
+    mailing/mimetext.cpp \
+    mailing/quotedprintable.cpp \
+    mailing/smtpclient.cpp
 
 HEADERS += \
         mainwindow.h \
     locataire.h \
     local.h \
-    connexion.h
+    connexion.h \
+    mailing/emailaddress.h \
+    mailing/mimeattachment.h \
+    mailing/mimecontentformatter.h \
+    mailing/mimefile.h \
+    mailing/mimehtml.h \
+    mailing/mimeinlinefile.h \
+    mailing/mimemessage.h \
+    mailing/mimemultipart.h \
+    mailing/mimepart.h \
+    mailing/mimetext.h \
+    mailing/quotedprintable.h \
+    mailing/smtpclient.h \
+    mailing/smtpexports.h \
+    mailing/SmtpMime
 
 FORMS += \
         mainwindow.ui
@@ -45,5 +72,4 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-RESOURCES += \
-    background.qrc
+RESOURCES +=
