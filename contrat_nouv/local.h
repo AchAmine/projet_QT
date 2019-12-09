@@ -31,7 +31,7 @@ public:
     bool supprimer_local(int) ;
     QSqlQueryModel * afficher_local() ;
     QSqlQueryModel * recherche(QString);
-    QSqlQueryModel * afficherlc();
+    QSqlQueryModel * afficherlc(QString);
 
 };
 #endif // LOCAL_H

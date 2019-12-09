@@ -2078,7 +2078,7 @@ QAbstractView:hover {
 }</string>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -2087,9 +2087,9 @@ QAbstractView:hover {
      <widget class="QTabWidget" name="locataire">
       <property name="geometry">
        <rect>
-        <x>30</x>
+        <x>0</x>
         <y>20</y>
-        <width>811</width>
+        <width>701</width>
         <height>541</height>
        </rect>
       </property>
@@ -4148,7 +4148,7 @@ QAbstractView:hover {
 }</string>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>5</number>
       </property>
       <widget class="QWidget" name="Ajouter_locataire">
        <attribute name="title">
@@ -4544,7 +4544,7 @@ QAbstractView:hover {
        <widget class="QLineEdit" name="linemCINN">
         <property name="geometry">
          <rect>
-          <x>630</x>
+          <x>560</x>
           <y>20</y>
           <width>113</width>
           <height>22</height>
@@ -4635,8 +4635,8 @@ QAbstractView:hover {
        <widget class="QPushButton" name="Trier_locataire">
         <property name="geometry">
          <rect>
-          <x>530</x>
-          <y>20</y>
+          <x>360</x>
+          <y>10</y>
           <width>93</width>
           <height>28</height>
          </rect>
@@ -4644,6 +4644,36 @@ QAbstractView:hover {
         <property name="text">
          <string>Trier</string>
         </property>
+       </widget>
+       <widget class="QComboBox" name="boxlct">
+        <property name="geometry">
+         <rect>
+          <x>480</x>
+          <y>10</y>
+          <width>91</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>nom</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>id_local</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>CIN</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>prenom</string>
+         </property>
+        </item>
        </widget>
       </widget>
      </widget>
@@ -7197,7 +7227,7 @@ QAbstractView:hover {
        <widget class="QPushButton" name="Trier_local">
         <property name="geometry">
          <rect>
-          <x>560</x>
+          <x>410</x>
           <y>50</y>
           <width>93</width>
           <height>28</height>
@@ -7206,6 +7236,41 @@ QAbstractView:hover {
         <property name="text">
          <string>Trier</string>
         </property>
+       </widget>
+       <widget class="QComboBox" name="boxlc">
+        <property name="geometry">
+         <rect>
+          <x>540</x>
+          <y>50</y>
+          <width>73</width>
+          <height>26</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>id</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>type</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>prix</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>superficie</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>duree</string>
+         </property>
+        </item>
        </widget>
       </widget>
      </widget>

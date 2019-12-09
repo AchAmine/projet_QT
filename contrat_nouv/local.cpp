@@ -85,10 +85,10 @@ bool local::modifier_local(int IDD)
 
 return query.exec();
 }
-QSqlQueryModel *local::afficherlc()
+QSqlQueryModel *local::afficherlc(QString col)
 {QSqlQueryModel * model= new QSqlQueryModel();
 
-model->setQuery("select * from local ORDER BY id   ");
+model->setQuery("select * from local ORDER BY " + col);
 model->setHeaderData(0, Qt::Horizontal, QObject::tr("id"));
 model->setHeaderData(1, Qt::Horizontal, QObject::tr("Type"));
 model->setHeaderData(2, Qt::Horizontal, QObject::tr("superficie"));

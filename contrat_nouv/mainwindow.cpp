@@ -23,16 +23,22 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_Ajout_locataire_clicked()
 {
-    long CIN = ui->lineCIN->text().toLong();
+    QString CIN = ui->lineCIN->text();
         QString nom= ui->lineNom->text();
         QString prenom= ui->linePrenom->text();
         QString email= ui->lineEmail->text();
         QString adr= ui->lineAdresse->text();
-    long NumTel = ui->lineNumTel->text().toLong();
+    QString NumTel = ui->lineNumTel->text();
     int id_local = ui->lineID_local->text().toInt();
 
       locataire lct(nom,prenom,email,adr,NumTel,CIN,id_local) ;
       bool test=lct.ajouter_locataire();
+      if (CIN.length()!=8)
+          QMessageBox::critical(nullptr, QObject::tr("Ajouter un locataire"),
+                      QObject::tr("CHECK CIN !.\n"
+                                  "Click Cancel to exit."), QMessageBox::Cancel);
+      else {
+
       if(test)
     {ui->tablocataire->setModel(tmplocataire.afficher_locataire());
     QMessageBox::information(nullptr, QObject::tr("Ajouter un locataire"),
@@ -46,14 +52,14 @@ void MainWindow::on_Ajout_locataire_clicked()
                                   "Click Cancel to exit."), QMessageBox::Cancel);
 
 
-
+}
 }
 
 void MainWindow::on_supp_locataire_clicked()
 {
 
 
-    long CIN = ui->lineSUPCIN->text().toLong();
+    QString CIN = ui->lineSUPCIN->text();
     bool test=tmplocataire.supprimer_locataire(CIN);
     if(test)
     {ui->tablocataire->setModel(tmplocataire.afficher_locataire());//refresh
@@ -70,14 +76,14 @@ void MainWindow::on_supp_locataire_clicked()
 
 void MainWindow::on_modif_locataire_clicked()
 {
-    long CIN = ui->linemCIN->text().toLong();
+    QString CIN = ui->linemCIN->text();
            QString nom= ui->linemNom->text();
            QString prenom= ui->linemPrenom->text();
            QString email= ui->linemEmail->text();
            QString adr= ui->linemAdresse->text();
-       long NumTel = ui->linemNumTel->text().toLong();
+       QString NumTel = ui->linemNumTel->text();
        int id_local = ui->linemID_local->text().toInt();
-       long CINN = ui->linemCINN->text().toLong();
+       QString CINN = ui->linemCINN->text();
 
 
          locataire lct1(nom,prenom,email,adr,NumTel,CIN,id_local) ;
@@ -170,8 +176,7 @@ void MainWindow::on_supp_local_clicked()
 
 void MainWindow::on_Trier_locataire_clicked()
 {
-     ui->tabt->setModel(tmplocataire.afficherlct());
-
+     ui->tabt->setModel(tmplocataire.afficherlct(ui->boxlct->currentText()));
 }
 
 void MainWindow::on_lineRNOM_textChanged()
@@ -189,7 +194,7 @@ void MainWindow::on_lineRTYPE_textChanged()
 
 void MainWindow::on_Trier_local_clicked()
 {
-    ui->tabtlc->setModel(tmplocal.afficherlc());
+    ui->tabtlc->setModel(tmplocal.afficherlc(ui->boxlc->currentText()));
 }
 
 void MainWindow::on_Envoyer_clicked()
@@ -199,9 +204,9 @@ void MainWindow::on_Envoyer_clicked()
                 smtp.setUser("mohamedamine.achour@esprit.tn");
                 smtp.setPassword("181JMT2328");
                 MimeMessage message;
-                message.setSender(new EmailAddress("mohamedamine.achour@esprit.tn", "administration"));
-                message.addRecipient(new EmailAddress(ui->lineEdit->text(), "client"));
-                message.setSubject("ATTENTION!!!!!");
+                message.setSender(new EmailAddress("mohamedamine.achour@esprit.tn", "Centre commercial"));
+                message.addRecipient(new EmailAddress(ui->lineEdit->text(), "locataire"));
+                message.setSubject("ATTENTION!");
                 MimeText text;
                 text.setText(ch);
                 message.addPart(&text);
