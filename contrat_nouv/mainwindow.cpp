@@ -201,10 +201,10 @@ void MainWindow::on_Envoyer_clicked()
 {
     SmtpClient smtp("smtp.gmail.com", 465, SmtpClient::SslConnection);
                 QString ch=ui->textEdit->toPlainText();
-                smtp.setUser("mohamedamine.achour@esprit.tn");
-                smtp.setPassword("181JMT2328");
+                smtp.setUser("your email");
+                smtp.setPassword("your pass");
                 MimeMessage message;
-                message.setSender(new EmailAddress("mohamedamine.achour@esprit.tn", "Centre commercial"));
+                message.setSender(new EmailAddress("your email", "Centre commercial"));
                 message.addRecipient(new EmailAddress(ui->lineEdit->text(), "locataire"));
                 message.setSubject("ATTENTION!");
                 MimeText text;
